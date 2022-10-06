@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行办公系统</title>
+    <link rel="stylesheet" href="/resources/layui/css/layui.css">
+    <style>
+        body {
+            /*background-color: #f2f2f2;*/
+        }
+
+        .oa-container {
+            background-color: white;
+            position: absolute;
+            width: 400px;
+            height: 350px;
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+
+            margin-left: -200px; /* 这个div宽度为200,向左移动200则到达中心，负号代表向左，正号则是向右 */
+            margin-top: -175px;
+        }
+
+        #username, #password {
+            text-align: center;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="oa-container">
+    <h1 style="text-align: center;margin-bottom: 20px">银行办公系统</h1>
+    <form class="layui-form">
+        <!-- 一定要注意下面两个layui-form-item中设置的name就是数据源data.filed中的name,所以这里一定要进行设置!!!-->
+        <div class="layui-form-item">
+                <input type="text" name="username" id="username" placeholder="请输入用户名" autocomplete="off" class="layui-input"
+                       lay-verify="required">  <!-- required代表这个表单必填-->
+        </div>
+
+        <div class="layui-form-item">
+                <input type="password" name="password" id="password" placeholder="请输入密码" autocomplete="off" class="layui-input"
+                       lay-verify="required">
+        </div>
+
+        <div class="layui-form-item">
+            <button class="layui-btn layui-btn-fluid" lay-submit  lay-filter="login">登录</button>
+        </div>
+    </form>
+
+</div>
+
+<script src="resources/layui/layui.js"></script>
+<script>
+
+    layui.form.on('submit(login)', function (formdata) {//括号中的login指代绑定哪个表单元素的提交事件，对应于上面的lay-filter,data参数包含了当前表单的数据
+        console.log(formdata);
+        layui.$.ajax({
+            url:"/check_login",
+            data:formdata.field,
+            type:"post",
+            dataType:"json",
+            success:function (json){
+                console.log(json);
+                if(json.code=="0"){
+                    //layui.layer.msg("登录成功!");
+                    window.location.href = json.redirect_url;   //跳转至返回结果的url
+                }else {
+                    layui.layer.msg(json.message);
+                }
+            }
+        })
+        return false;  //submit事件返回true代表提交，false则阻止表单提交
+
+    });
+
+</script>
+
+</body>
+</html>

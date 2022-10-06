@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN"
+        "http://mybatis.org//dta/mybatis-3-mapper.dtd">
+
+<mapper namespace="rbacmapper">
+    <select id="selectNodeByUserId" parameterType="Long" resultType="com.hwf.oa.entity.Node">
+        select distinct n.*
+        from role_user ru,
+             role_node rn,
+             node n
+        where ru.role_id = rn.role_id
+          and user_id = #{value}
+          and rn.node_id = n.node_id
+        order by n.node_code
+    </select>
+
+    <insert id="insert" parameterType="Long">
+        INSERT INTO role_user (role_id, user_id) VALUES (1, #{user_id})
+    </insert>
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org//dtd//mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- 开启驼峰命名转换  -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+    </settings>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="com.hwf.oa.datasource.DruidDataSourceFactory">  <!-- 整合mybatis和druid连接池,这个连接池只需要将driver调整为driverClassName-->
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/bank?useUnicode=true$amp;characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+                <property name="initialSize" value="10"/>  <!-- 初始10个连接 -->
+                <property name="maxActive" value="20"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper resource="mappers/test.xml"/>
+        <mapper resource="mappers/user.xml"/>
+        <mapper resource="mappers/rbac.xml"/>
+        <mapper resource="mappers/person.xml"/>
+        <mapper resource="mappers/notice.xml"/>
+        <mapper resource="mappers/form.xml"/>
+
+
+    </mappers>
+
+
+
+
+</configuration>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD Mapper 3.0//EN"
+        "http://mybatis.org//dta/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwf.oa.dao.UserDao">
+    <select id="selectByUserId" parameterType="Long" resultType="com.hwf.oa.entity.User">
+        select * from user where user_id = #{user_id}
+    </select>
+
+    <select id="selectByUsername" parameterType="String" resultType="com.hwf.oa.entity.User">
+        select * from user where username=#{user_name}
+    </select>
+
+    <update id="updateAmount">
+        update user set amount = amount+ #{count} where user_id = #{user_id}
+    </update>
+
+    <update id="updatePassword">
+        update user set password=#{password} where user_id=#{user_id}
+    </update>
+
+    <update id="update" parameterType="com.hwf.oa.entity.User">
+        UPDATE user SET username = #{user.username}, password = #{user.password}, state = #{user.state}, identity_id = #{user.identityId}, amount = #{user.amount}, salt = #{user.salt} WHERE user_id = #{user.userId};
+    </update>
+    <insert id="insert" parameterType="com.hwf.oa.entity.User"  useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id">
+        INSERT INTO user (username, password, state, identity_id, amount, salt) VALUES (#{user.username},#{user.password},#{user.state},#{user.identityId},#{user.amount},#{user.salt});
+    </insert>
+
+    <delete id="del" parameterType="com.hwf.oa.entity.User">
+        delete from user where user_id=#{user.userId};
+    </delete>
+
+</mapper>

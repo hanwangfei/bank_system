@@ -1,0 +1,34 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bank_system:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/bank_system_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="bank_system/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bank_system" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.3.0-alpha14" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.3.0-alpha14" />
+          <element id="library" level="project" name="Maven: com.alibaba.fastjson2:fastjson2-extension:2.0.3" />
+          <element id="library" level="project" name="Maven: com.alibaba.fastjson2:fastjson2:2.0.3" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.9" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:2.0.3" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.6" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.29" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.29" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.6.10" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:13.0" />
+          <element id="library" level="project" name="Maven: org.json:json:20220320" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.9" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.0-alpha5" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
