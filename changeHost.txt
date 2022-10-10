@@ -1,1 +1,2 @@
 这是测试更改了host文件后能否成功再次成功连接至github仓库
+haha test success
